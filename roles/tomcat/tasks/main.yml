@@ -32,6 +32,9 @@
 
 - name: Install Tomcat init script
   copy: src=tomcat-initscript.sh dest=/etc/init.d/tomcat mode=0755
+  
+  - name: Adding sample war file
+  get_url: url=https://tomcat.apache.org/tomcat-6.0-doc/appdev/sample/sample.war dest=/usr/share/tomcat/webapps/sample.war
 
 - name: Start Tomcat
   service: name=tomcat state=started enabled=yes
