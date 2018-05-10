@@ -1,8 +1,7 @@
 [tomcat-servers]
-ip-172-31-95-103
-
+18.233.148.58
 
 [all:vars]
-ansible_ssh_private_key_file=key.pem
+ansible_ssh_private_key_file=~/buster_ec2_key.pem
 ansible_become=true
 ansible_user=ec2-user

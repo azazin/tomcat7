@@ -4,5 +4,6 @@
 - hosts: tomcat-servers
 
   roles:
-    - epel
+#    - epel
     - tomcat
+    - nginx
