@@ -1,7 +1,7 @@
 [tomcat-servers]
-18.233.148.58
+34.228.140.220
 
 [all:vars]
-ansible_ssh_private_key_file=~/buster_ec2_key.pem
+ansible_ssh_private_key_file=/var/lib/jenkins/keys/buster_ec2_key.pem
 ansible_become=true
 ansible_user=ec2-user

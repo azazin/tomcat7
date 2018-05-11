@@ -19,22 +19,27 @@
 - name: Symlink install directory
   file: src=/opt/apache-tomcat-7.0.61 path=/usr/share/tomcat state=link
 
-- name: Change ownership of Tomcat installation
-  file: path=/usr/share/tomcat/ owner=tomcat group=tomcat state=directory recurse=yes
+#- name: Change ownership of Tomcat installation
+#  file: path=/usr/share/tomcat/ owner=tomcat group=tomcat state=directory recurse=yes
 
 - name: Configure Tomcat server
   template: src=server.xml dest=/usr/share/tomcat/conf/
-  notify: restart tomcat
 
 - name: Configure Tomcat users
   template: src=tomcat-users.xml dest=/usr/share/tomcat/conf/
-  notify: restart tomcat
+
+- name: adding manager.xml
+  template: src=manager.xml dest=/usr/share/tomcat/conf/Catalina/localhost/
 
 - name: Install Tomcat init script
   copy: src=tomcat-initscript.sh dest=/etc/init.d/tomcat mode=0755
   
 - name: Adding sample war file
   get_url: url=https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war dest=/usr/share/tomcat/webapps/sample.war
+
+- name: Change ownership of Tomcat installation
+  file: path=/usr/share/tomcat/ owner=tomcat group=tomcat state=directory recurse=yes
+  notify: restart tomcat
 
 - name: Start Tomcat
   service: name=tomcat state=started enabled=yes
