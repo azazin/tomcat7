@@ -1,9 +1,0 @@
-# port vars
-
-http_port: 8080
-https_port: 8443
-
-# default manager-gui user:
-
-admin_username: kokoko
-admin_password: 223322
