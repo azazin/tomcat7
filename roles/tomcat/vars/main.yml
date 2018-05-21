@@ -2,6 +2,6 @@
  https_port: 8443
 
  admin_username: admin
- admin_password: adminsecret
+ admin_password: admins3cr3t
 
  tomcat_version: 7.0.61
