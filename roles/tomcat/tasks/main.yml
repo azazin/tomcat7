@@ -8,15 +8,15 @@
   group:
     name: tomcat
     state: present
-    system: yes
+    #system: yes
 
 - name: add user "tomcat"
   user:
     name: tomcat 
     group: tomcat
-    system: yes
+    #system: yes
     state: present
-    shell: /bin/false
+    #shell: /bin/false
     home: /usr/share/tomcat 
     create_home: no
 
