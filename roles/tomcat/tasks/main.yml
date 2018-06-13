@@ -36,7 +36,8 @@
 - name: Symlink install directory
   file:
     src: /opt/apache-tomcat-{{ tomcat_version }}
-    path: /usr/share/tomcat state=link
+    path: /usr/share/tomcat
+    state: link
 
 - name: Configure Tomcat server
   template:
