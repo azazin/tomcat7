@@ -4,6 +4,5 @@
 - hosts: all
   become: true
   roles:
-#    - epel
     - tomcat
     - nginx

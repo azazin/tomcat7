@@ -1,13 +1,20 @@
 ---
 - name: Install nginx
-  yum: name=nginx state=present
+  yum: 
+    name: nginx
+    state: latest
 
 - name: Configure proxy_pass
-  template: src=nginx.conf dest=/etc/nginx/
-
-- name: Change ownership of the conf file
-  file: path=/etc/nginx/nginx.conf owner=root group=root
+  template: 
+    src: nginx.conf 
+    dest: /etc/nginx/
+    owner: root
+    group: root
 
 - name: Start nginx
-  service: name=nginx state=started enabled=yes
-  notify: restart nginx
+  service: 
+    name: nginx 
+    state: started 
+    enabled: yes
+  notify: 
+    - restart nginx
